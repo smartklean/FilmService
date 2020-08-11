@@ -61,7 +61,7 @@
                                             <td>{{$film->genre}}</td>
                                             <td>{{$film->price}}</td>
                                             <td>
-                                                <a class="btn btn-primary fa fa-pencil-square-o" href="{{route('purchase', $film->id)}}">Edit</a> | 
+                                                <a class="btn btn-primary fa fa-pencil-square-o" href="{{route('purchaseFilm', $film->id)}}">Edit</a> | 
                                                 <a href="javascript:;" data-toggle="modal" onclick = "deleteData({{$film->id}})" data-target="#DeleteModal" class="btn btn-danger fa fa-trash"> Delete </a>
                                             </td>
                                             
@@ -82,3 +82,19 @@
     </div>
 </div>
 @endsection
+@section('extra-script')
+    <script type="text/javascript">
+         function deleteData(id)
+         {
+             var id = id;
+             var url = '{{ route("deleteFilm", "id") }}';
+             url = url.replace('id', id);
+             $("#deleteForm").attr('action', url);
+         }
+
+         function formSubmit()
+         {
+             $("#deleteForm").submit();
+         }
+     </script>
+    @endsection

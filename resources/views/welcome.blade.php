@@ -111,7 +111,7 @@
                                         <td>{{$film->genre}}</td>
                                         <td>{{$film->price}}</td>
                                         <td>
-                                            <a class="btn btn-primary fa fa-pencil-square-o" href="{{route('purchase', $film->id)}}">Purchase</a> 
+                                            <a class="btn btn-primary fa fa-pencil-square-o" href="{{route('purchaseFilm', $film->id)}}">Purchase</a> 
                                         </td>
                                         
                                     </tr>

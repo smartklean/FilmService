@@ -55,10 +55,22 @@
                             </li>&nbsp;&nbsp;
 
                             <li class="nav-item">
+                                <a class="nav-link btn btn-warning" href="{{ route('sales') }}">{{ __('Sales') }}</a>
+                            </li>&nbsp; &nbsp;
+
+                            <li class="nav-item">
                                 <a class="nav-link btn btn-warning" href="{{ route('film') }}">{{ __('Films') }}</a>
+                            </li>&nbsp; &nbsp;
+                            @else
+
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-warning" href="{{ route('purchased') }}">{{ __('Purchased') }}</a>
                             </li>&nbsp; &nbsp;
 
                         @endif
+
+                        
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -89,5 +101,6 @@
             @yield('content')
         </main>
     </div>
+     @yield('extra-script')
 </body>
 </html>

@@ -24,14 +24,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::post('film',  'FilmController@store')->name('newFilm');
 
-	Route::get('/buy-film/{id}',  'FilmController@show')->name('purchase');
+	Route::get('/buy-film/{id}',  'FilmController@show')->name('purchaseFilm');
 
-	Route::post('/buy-film/{id}',  'FilmController@update')->name('updateFilm');
+	Route::post('/update/{id}',  'FilmController@update')->name('updateFilm');
 
-	Route::post('/buy-film/{id}',  'FilmController@show')->name('purchase');
+	Route::get('delete/{id}',  'FilmController@destroy')->name('deleteFilm');
 
-	// Route::get('deleteUser/{id}',  'UserController@destroy')->name('deleteUser');
-	
+	//users
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::get('/user', 'HomeController@user')->name('user');
@@ -43,4 +42,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/user/{id}', 'HomeController@update')->name('updateUser');
 
 	Route::post('/password/{id}', 'HomeController@updatePassword')->name('updatePassword');
+
+	//sales
+	Route::post('/pay-film/{id}',  'SalesController@store')->name('purchase');
+
+	Route::get('/purcased/films',  'SalesController@index')->name('purchased');
+
+	Route::get('/sales/films',  'SalesController@index2')->name('sales');
 });

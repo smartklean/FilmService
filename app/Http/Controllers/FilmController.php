@@ -70,10 +70,9 @@ class FilmController extends Controller
 
     public function destroy($id){
          
-        $user = user::find($id);
-        $user->activate = 0;
-        $user->update();
-       return redirect()->route('users')->with('success','User Succesfully Delete');
+        $film = film::find($id);
+        $film->delete();
+       return redirect()->back()->with('success','User Succesfully Delete');
     }
 
 

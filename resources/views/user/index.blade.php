@@ -35,9 +35,6 @@
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->age}}</td>
                                             <td>{{$user->address}}</td>
-                                            <td>
-                                                <a class="btn btn-primary fa fa-pencil-square-o" href="{{route('showUser', $user->id)}}">Edit</a>
-                                            </td>
                                         </tr>
                                     @empty
                                         <tr>

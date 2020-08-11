@@ -15,7 +15,14 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('film_id')->unsigned();
+            $table->string('amount');
+            $table->dateTime('time');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');
         });
     }
 
